@@ -1,1 +1,1 @@
-web: node domino-backend/server.js
+web: npm run serve-heroku
