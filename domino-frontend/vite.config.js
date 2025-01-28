@@ -10,6 +10,9 @@ export default defineConfig({
         ws: true
       }
     }
+  }, 
+  preview: {
+    allowedHosts: ['hidden-meadow-68185-d2168c8f325d.herokuapp.com']
   }
 });
 // Configuration du proxy pour rediriger les requêtes API vers le backend
