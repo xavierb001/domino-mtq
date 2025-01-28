@@ -1,0 +1,1 @@
+web: node domino-backend/server.js
