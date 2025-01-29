@@ -5,19 +5,15 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': 'http://localhost:3000',
-      changeOrigin: true,
-    //  secure: false
-    },
       '/socket.io': {
         target: 'http://localhost:3000',
-        ws: true,
-       // changeOrigin: true,
-        //secure: false
+        ws: true
+      }
     }
   }, 
-  preview: {
-    allowedHosts: ['hidden-meadow-68185-d2168c8f325d.herokuapp.com']
-  }
+  //  preview: {
+   // allowedHosts: ['hidden-meadow-68185-d2168c8f325d.herokuapp.com']
+ // }
 });
 // Configuration du proxy pour rediriger les requêtes API vers le backend
 /*export default defineConfig({
