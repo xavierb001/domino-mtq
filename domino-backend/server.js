@@ -23,7 +23,7 @@ app.use(cors({
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:5173',
+    origin: '*',
     methods: ['GET', 'POST'],
   },
 });
@@ -314,6 +314,7 @@ socket.on('endRoundNoMoves', ({ gameId }) => {
 
         // Vérifier s'il y a des observateurs pour remplacer le joueur
         if (game.observers.length > 0) {
+          console.log(`test ajout de jouer `);
           const newPlayer = game.observers.shift();
           game.players.push({ id: newPlayer.id, username: newPlayer.username, hand: [], score: 0 });
           distributeDominos(gameId);

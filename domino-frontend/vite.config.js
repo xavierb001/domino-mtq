@@ -5,10 +5,14 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': 'http://localhost:3000',
+      changeOrigin: true,
+      secure: false
+    },
       '/socket.io': {
         target: 'http://localhost:3000',
-        ws: true
-      }
+        ws: true,
+        changeOrigin: true,
+        secure: false
     }
   }, 
   preview: {
