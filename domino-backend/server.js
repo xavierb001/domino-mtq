@@ -15,8 +15,8 @@ const staticFolder = path.join(__dirname, 'dist');
 app.use(express.static(path.join(__dirname, '../domino-frontend/dist')));
 
 app.use(cors({
- // origin: 'http://localhost:5173', // Origine du frontend (Vite)
- origin: '*', 
+  origin: 'http://localhost:5173', // Origine du frontend (Vite)
+ //origin: '*', 
  methods: ['GET', 'POST'],
   credentials: true // Nécessaire pour les cookies ou autorisations avec Socket.IO
 }));
@@ -24,7 +24,8 @@ app.use(cors({
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: '*',
+    origin: 'http://localhost:5173',
+   // origin: '*',
     methods: ['GET', 'POST'],
   },
 });
