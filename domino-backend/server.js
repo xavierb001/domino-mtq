@@ -8,6 +8,9 @@ const app = express();
 
 const staticFolder = path.join(__dirname, 'dist');
 
+const FRONTEND_URL = process.env.NODE_ENV === "production"
+  ? "https://hidden-meadow-68185-d2168c8f325d.herokuapp.com" // Mets ton URL Heroku
+  : "http://localhost:5173";
 
 
 
@@ -15,7 +18,7 @@ const staticFolder = path.join(__dirname, 'dist');
 app.use(express.static(path.join(__dirname, '../domino-frontend/dist')));
 
 app.use(cors({
-  origin: 'http://localhost:5173', // Origine du frontend (Vite)
+  origin: FRONTEND_URL, // Origine du frontend (Vite)
  //origin: '*', 
  methods: ['GET', 'POST'],
   credentials: true // Nécessaire pour les cookies ou autorisations avec Socket.IO
@@ -24,9 +27,9 @@ app.use(cors({
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:5173',
-   // origin: '*',
+    origin: FRONTEND_URL,
     methods: ['GET', 'POST'],
+    credentials: true,
   },
 });
 
@@ -395,7 +398,10 @@ app.get('*', (req, res) => {
 });
 
 // Démarrer le serveur
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+server.listen(PORT, () => {
+  console.log(`🚀 Serveur lancé sur le port ${PORT}`);
+  console.log(`🌍 Frontend accessible sur : ${FRONTEND_URL}`);
+});
 
 // Optionnel : Une route 404 pour toutes les autres requêtes
 app.use((req, res) => {
