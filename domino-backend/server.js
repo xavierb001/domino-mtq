@@ -6,7 +6,7 @@ const path = require('path');
 const PORT = process.env.PORT || 3000;
 const app = express();
 
-const staticFolder = path.join(__dirname, 'dist');
+//const staticFolder = path.join(__dirname, 'dist');
 
 const FRONTEND_URL = process.env.NODE_ENV === "production"
   ? "https://hidden-meadow-68185-d2168c8f325d.herokuapp.com" // Mets ton URL Heroku
