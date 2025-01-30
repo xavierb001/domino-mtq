@@ -19,12 +19,7 @@ app.use(express.static(path.join(__dirname, '../domino-frontend/dist')));
 
 // CORS configuration
 app.use(cors({
-  origin: [
-    'https://hidden-meadow-68185-d2168c8f325d.herokuapp.com',
-    'http://hidden-meadow-68185-d2168c8f325d.herokuapp.com',
-    'http://localhost:5173',
-    'http://localhost:4173'
-  ],
+  origin: FRONTEND_URL,
   methods: ['GET', 'POST'],
   credentials: true,
   optionsSuccessStatus: 200
@@ -32,12 +27,7 @@ app.use(cors({
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: [
-      'https://hidden-meadow-68185-d2168c8f325d.herokuapp.com',
-      'http://hidden-meadow-68185-d2168c8f325d.herokuapp.com',
-      'http://localhost:5173',
-      'http://localhost:4173'
-    ],
+    origin: FRONTEND_URL,
     methods: ['GET', 'POST'],
     credentials: true,
     transports: ['websocket', 'polling']

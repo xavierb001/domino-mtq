@@ -1,12 +1,12 @@
-// Fichier : socket/socket.js
 import { io } from 'socket.io-client';
 
-// Initialisation de la connexion Socket.IO
-const socket = io('http://localhost:3000/'); // Remplacez par l'URL de votre backend si nécessaire
-//const socket = io('http://147.215.207.243:3001',{
- //   reconnection: true, // Activer la reconnexion automatique
- //   reconnectionAttempts: 5, // Nombre maximal de tentatives de reconnexion
-   // reconnectionDelay: 1000, // Délai entre les tentatives (en ms)
-  //}); // Remplacez par l'IP locale de votre backend
+const BACKEND_URL = import.meta.env.PROD 
+  ? 'https://hidden-meadow-68185-d2168c8f325d.herokuapp.com'
+  : 'http://localhost:3000';
+
+const socket = io(BACKEND_URL, {
+  withCredentials: true,
+  transports: ['websocket', 'polling']
+});
 
 export default socket;
