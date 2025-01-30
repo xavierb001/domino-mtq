@@ -18,7 +18,7 @@ const FRONTEND_URL = process.env.NODE_ENV === "production"
 app.use(express.static(path.join(__dirname, '../domino-frontend/dist')));
 
 app.use(cors({
-  origin: FRONTEND_URL, // Origine du frontend (Vite)
+  origin: [FRONTEND_URL, "http://localhost:4173", "http://localhost:5173"], // Origine du frontend (Vite)
  //origin: '*', 
  methods: ['GET', 'POST'],
   credentials: true // Nécessaire pour les cookies ou autorisations avec Socket.IO
@@ -27,9 +27,9 @@ app.use(cors({
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: FRONTEND_URL,
+    origin: [FRONTEND_URL, "http://localhost:4173", "http://localhost:5173"],
     methods: ['GET', 'POST'],
-    credentials: true,
+    credentials: true
   },
 });
 

@@ -1,6 +1,7 @@
 {
   "name": "domino-backend",
   "version": "1.0.0",
+  "type": "commonjs",
   "description": "Backend for the Domino game project",
   "main": "server.js",
   "scripts": {
