@@ -32,7 +32,14 @@ const io = new Server(server, {
     credentials: true,
     transports: ['websocket', 'polling'],
     pingTimeout: 60000,
-    pingInterval: 25000
+    pingInterval: 25000,
+    allowEIO3: true,
+    cookie: {
+      name: "socket-io",
+      httpOnly: true,
+      sameSite: "strict",
+      secure: process.env.NODE_ENV === "production"
+    }
   }
 });
 
@@ -401,7 +408,7 @@ app.get('*', (req, res) => {
 });
 
 // Démarrer le serveur
-server.listen(PORT, () => {
+server.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Serveur lancé sur le port ${PORT}`);
   console.log(`🌍 Frontend accessible sur : ${FRONTEND_URL}`);
 });
