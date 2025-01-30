@@ -8,6 +8,17 @@ const app = express();
 
 //const staticFolder = path.join(__dirname, 'dist');
 
+// Force HTTPS in production
+if (process.env.NODE_ENV === 'production') {
+  app.use((req, res, next) => {
+    if (req.header('x-forwarded-proto') !== 'https') {
+      res.redirect(`https://${req.header('host')}${req.url}`);
+    } else {
+      next();
+    }
+  });
+}
+
 const FRONTEND_URL = process.env.NODE_ENV === "production"
   ? "https://hidden-meadow-68185-d2168c8f325d.herokuapp.com" // Mets ton URL Heroku
   : "http://localhost:5173";
