@@ -17,20 +17,31 @@ const FRONTEND_URL = process.env.NODE_ENV === "production"
 // Servir les fichiers statiques
 app.use(express.static(path.join(__dirname, '../domino-frontend/dist')));
 
+// CORS configuration
 app.use(cors({
-  origin: [FRONTEND_URL, "http://localhost:4173", "http://localhost:5173"], // Origine du frontend (Vite)
- //origin: '*', 
- methods: ['GET', 'POST'],
-  credentials: true // Nécessaire pour les cookies ou autorisations avec Socket.IO
+  origin: [
+    'https://hidden-meadow-68185-d2168c8f325d.herokuapp.com',
+    'http://hidden-meadow-68185-d2168c8f325d.herokuapp.com',
+    'http://localhost:5173',
+    'http://localhost:4173'
+  ],
+  methods: ['GET', 'POST'],
+  credentials: true,
+  optionsSuccessStatus: 200
 }));
-
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: [FRONTEND_URL, "http://localhost:4173", "http://localhost:5173"],
+    origin: [
+      'https://hidden-meadow-68185-d2168c8f325d.herokuapp.com',
+      'http://hidden-meadow-68185-d2168c8f325d.herokuapp.com',
+      'http://localhost:5173',
+      'http://localhost:4173'
+    ],
     methods: ['GET', 'POST'],
-    credentials: true
-  },
+    credentials: true,
+    transports: ['websocket', 'polling']
+  }
 });
 
 let games = {}; // Stockage des parties
