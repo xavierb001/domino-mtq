@@ -22,7 +22,7 @@ app.use(cors({
   origin: FRONTEND_URL,
   methods: ['GET', 'POST'],
   credentials: true,
-  optionsSuccessStatus: 200
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -30,7 +30,9 @@ const io = new Server(server, {
     origin: FRONTEND_URL,
     methods: ['GET', 'POST'],
     credentials: true,
-    transports: ['websocket', 'polling']
+    transports: ['websocket', 'polling'],
+    pingTimeout: 60000,
+    pingInterval: 25000
   }
 });
 
