@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, '../domino-frontend/dist')));
 
 // CORS configuration
 app.use(cors({
-  origin: FRONTEND_URL,
+  origin: ['http://localhost:5173', 'https://hidden-meadow-68185-d2168c8f325d.herokuapp.com'], 
   methods: ['GET', 'POST'],
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization']

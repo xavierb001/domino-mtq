@@ -5,8 +5,9 @@ const BACKEND_URL = import.meta.env.PROD
   : 'http://localhost:3000';
 
 const socket = io(BACKEND_URL, {
-  withCredentials: true,
-  transports: ['websocket', 'polling']
+  transports: ['websocket', 'polling'], // Force WebSocket + fallback
+  secure: true, // Important pour Heroku
+  withCredentials: true
 });
 
 export default socket;
