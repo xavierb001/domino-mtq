@@ -3,12 +3,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import socket from '../socket/socket';
 import Board from '../components/Board';
 import Chat from '../components/Chat'; // Chemin du composant Chat
-import imageFondJeu from 'https://res.cloudinary.com/dwvfz8o89/image/upload/f_auto,q_auto/v1/domino/n39kvljl1qutdoorce3z'; // Import de l'image de fond
+import imageFondJeu from '../assets/images/imagefond_jeu.png'; // Import de l'image de fond
 import iconeMessage from '../assets/images/icone_message.png';
 import dominoBack from '../assets/images/dominos/domino_back.png'; // Image pour représenter les dominos des autres joueurs
 import iconeMessageNotif from '../assets/images/icone_message_notif.png'; // ✅ Nouvelle icône de notification
 import "../styles/game.css"; 
 import shareIcon from '../assets/images/share_icon.png'; // Assure-toi d'avoir une icône de partage
+const imageFondJeuUrl = "https://res.cloudinary.com/dwvfz8o89/image/upload/f_auto,q_auto/v1/domino/n39kvljl1qutdoorce3z";
 
 function Game() {
   const { id: gameId } = useParams();
@@ -215,7 +216,7 @@ function Game() {
   return (
     <div style={{     width: '100vw', // Prend toute la largeur de l'écran
       height: '100vh',
-      textAlign: 'center', marginTop: '50px',         backgroundImage: `url(${imageFondJeu})`, // Image de fond
+      textAlign: 'center', marginTop: '50px',         backgroundImage: `url(${imageFondJeuUrl})`, // Image de fond
     backgroundSize: 'cover', // Couvrir tout l'écran
     backgroundPosition: 'center', // Centrer l'image
     backgroundRepeat: 'no-repeat', // Éviter la répétition
