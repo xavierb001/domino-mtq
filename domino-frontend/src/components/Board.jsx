@@ -194,15 +194,18 @@ const Board = ({ players, gameId, username, dominos, playDomino }) => {
     >
       <div style={{
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'column',
         alignItems: 'center',
-        padding: '0 100px', // Espace supplémentaire pour les dominos aux extrémités
-        minWidth: 'max-content'
+        justifyContent: 'center',
+        width: '100%',
+        padding: '20px'
       }}>
         {dominos.length === 0 ? (
           <p style={{ fontStyle: 'italic', color: '#FFF' }}>Aucun domino n'a encore été posé.</p>
         ) : (
-          <div style={{ display: 'inline-flex', gap: '1px' }}>
+          <div style={{ display: 'inline-flex', gap: '1px', padding: '0 100px', // Ajoute des marges pour le scroll
+            minWidth: 'max-content', // Assure que tout le contenu est accessible
+          }}>
             {dominos.map((domino, index) => (
               <img
                 key={index}
