@@ -1,5 +1,5 @@
 .home-container {
-    background-image: url('./assets/images/imagefond_accueil.png'); /* Remplacez par le chemin de votre image */
+    background-image: url('https://res.cloudinary.com/dwvfz8o89/image/upload/v1738618740/domino/anaswwyymo28wxv6o8fs.png'); /* Remplacez par le chemin de votre image */
     background-size: cover;
     background-position: center;
     height: 100vh;
