@@ -277,8 +277,9 @@ function Game() {
         </div>
       ) : (
         <div>
-          <h1> <span style={{ fontSize: '0.6em' }}>Partie : </span>
-          {gameId}</h1>
+         {/* <h1 style={{ fontSize: '0.6em' }}>
+            Partie : {gameId}
+          </h1>*/}
           <p><strong>Votre pseudo :</strong> {username}</p>
           <p><strong>Dernier domino posé par :</strong> {lastPlayer || 'Aucun'}</p>
 
