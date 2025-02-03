@@ -173,7 +173,7 @@ const Board = ({ players, gameId, username, dominos, playDomino }) => {
           height: '100vh',
           textAlign: 'center',
           marginTop: '20px', // Réduit de 50px à 20px
-          backgroundImage: `url(${imageFondJeuUrl})`,
+          backgroundImage: `url(${plateauDeJeuURL})`,
           backgroundSize: 'contain', // Change de 'cover' à 'contain'
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
