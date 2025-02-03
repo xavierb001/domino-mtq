@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import socket from '../socket/socket'; // Import de l'instance Socket.IO
 import plateauDeJeu from '../assets/images/plateau_de_jeu.jpg'; // Import de l'image du plateau
+const plateauDeJeuURL = "https://res.cloudinary.com/dwvfz8o89/image/upload/v1738618686/domino/ikv3ssgvaydiwoblyuxl.jpg";
 
 
 
@@ -173,7 +174,8 @@ const Board = ({ players, gameId, username, dominos, playDomino }) => {
           maxWidth: '100vw',
           marginBottom: '20px',
           overflowX: 'auto',
-          backgroundImage: `url(${plateauDeJeu})`,
+          //backgroundImage: `url(${plateauDeJeu})`,
+          backgroundImage: `url(${plateauDeJeuURL})`, // Utilisation de l'URL Cloudinary
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
