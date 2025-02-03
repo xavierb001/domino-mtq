@@ -66,3 +66,10 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+html, body {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  touch-action: none; /* Empêche les interactions tactiles de type zoom et scroll */
+}

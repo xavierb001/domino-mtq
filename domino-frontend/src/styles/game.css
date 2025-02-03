@@ -65,3 +65,19 @@
     transform: scale(1);
   }
 }
+@media screen and (orientation: landscape) {
+  body::before {
+    content: "Veuillez utiliser votre téléphone en mode portrait.";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    font-size: 18px;
+    text-align: center;
+    z-index: 9999;
+    width: 90%;
+  }
+}

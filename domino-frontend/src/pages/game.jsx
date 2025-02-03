@@ -174,6 +174,19 @@ function Game() {
     }
     });
 
+    const lockOrientation = () => {
+      if (screen.orientation && screen.orientation.lock) {
+        screen.orientation.lock("portrait").catch(err => console.log(err));
+      }
+    };
+  
+    lockOrientation();
+    window.addEventListener("resize", lockOrientation);
+  
+    return () => {
+      window.removeEventListener("resize", lockOrientation);
+    };
+
     return () => {
       socket.off('updatePlayers');
       socket.off('startGame');
