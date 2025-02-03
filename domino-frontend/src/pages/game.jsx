@@ -8,6 +8,10 @@ import iconeMessage from '../assets/images/icone_message.png';
 import dominoBack from '../assets/images/dominos/domino_back.png'; // Image pour représenter les dominos des autres joueurs
 import iconeMessageNotif from '../assets/images/icone_message_notif.png'; // ✅ Nouvelle icône de notification
 import "../styles/game.css"; 
+import ResultPopup from '../components/ResultPopup';
+import '../styles/popup.css';
+
+
 import shareIcon from '../assets/images/share_icon.png'; // Assure-toi d'avoir une icône de partage
 const imageFondJeuUrl = "https://res.cloudinary.com/dwvfz8o89/image/upload/f_auto,q_auto/v1/domino/n39kvljl1qutdoorce3z";
 
@@ -233,47 +237,15 @@ function Game() {
           <strong>{waitingRoomMessage}</strong>
         </div>
       )}
-      {roundResult  && roundResult.winner !== "Aucun" && (
-        <div style={{ color: 'blue' }}>
-          <strong>Fin de la manche :</strong> {roundResult.winner} a gagné cette manche !
-          <ul>
-            {roundResult.scores.map((player) => (
-              <li key={player.username}>
-                {player.username}: {player.score} point(s)
-              </li>
-            ))}
-            
-          </ul>
-          {roundResult.winner === username && (
-            <button onClick={startNewRound} style={{ marginTop: '10px' }}>
-              Démarrer une nouvelle manche
-            </button>
-          )}
-        </div>
-      )}
-{roundResult && roundResult.winner === "Aucun" && (
-  <div style={{ color: 'red' }}>
-    <strong>Manche terminée :</strong> Aucun joueur ne pouvait poser de domino. La manche est perdue.
-    <ul>
-      <button onClick={startNewRound} style={{ marginTop: '10px' }}>
-        Démarrer une nouvelle manche
-      </button>
-    </ul>
-  </div>
-)}
 
-      {gameResult && (
-        <div style={{ color: 'green' }}>
-          <strong>Partie terminée :</strong> {gameResult.winner} a gagné la partie !
-          <ul>
-            {gameResult.scores.map((player) => (
-              <li key={player.username}>
-                {player.username}: {player.score} point(s)
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+{(roundResult || gameResult) && (
+  <ResultPopup
+    roundResult={roundResult}
+    gameResult={gameResult}
+    username={username}
+    startNewRound={startNewRound}
+  />
+)}
 
       {!joined ? (
         <div>
@@ -305,20 +277,14 @@ function Game() {
         </div>
       ) : (
         <div>
-          <h1>Partie : {gameId}</h1>
+          <h1> <span style={{ fontSize: '0.6em' }}>Partie : </span>
+          {gameId}</h1>
           <p><strong>Votre pseudo :</strong> {username}</p>
           <p><strong>Dernier domino posé par :</strong> {lastPlayer || 'Aucun'}</p>
 
           {passingPlayer && <p style={{ color: 'red' }}>{passingPlayer} a passé son tour.</p>}
 
-          {/*<p>Joueurs :</p>
-          <ul>
-            {players.map((player) => (
-              <li key={player.username}>
-                {player.username} ({player.handCount} dominos)
-              </li>
-            ))}
-          </ul>*/}
+          
 
           {/* affichage nombre dominos autres joeurs*/} 
 
