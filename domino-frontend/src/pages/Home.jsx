@@ -55,6 +55,7 @@ function Home() {
     }}
     style={{
       padding: '10px',
+      fontSize: '16px', // Empêche le zoom automatique
       width: '200px',
       marginRight: '10px',
       borderRadius: '5px',

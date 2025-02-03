@@ -174,18 +174,7 @@ function Game() {
     }
     });
 
-    const lockOrientation = () => {
-      if (screen.orientation && screen.orientation.lock) {
-        screen.orientation.lock("portrait").catch(err => console.log(err));
-      }
-    };
-  
-    lockOrientation();
-    window.addEventListener("resize", lockOrientation);
-  
-    return () => {
-      window.removeEventListener("resize", lockOrientation);
-    };
+
 
     return () => {
       socket.off('updatePlayers');
@@ -200,6 +189,18 @@ function Game() {
       socket.off('connect_error');
       socket.off('error');
       socket.off('receiveMessage'); // Nettoyage des messages
+    };
+    const lockOrientation = () => {
+      if (screen.orientation && screen.orientation.lock) {
+        screen.orientation.lock("portrait").catch(err => console.log(err));
+      }
+    };
+  
+    lockOrientation();
+    window.addEventListener("resize", lockOrientation);
+  
+    return () => {
+      window.removeEventListener("resize", lockOrientation);
     };
   }, [gameId, username, isChatboxVisible]);
 
@@ -270,7 +271,8 @@ function Game() {
       {!joined ? (
         <div>
           <h1>Rejoindre la partie : {gameId}</h1>
-          <input
+          <input 
+          
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -285,6 +287,7 @@ function Game() {
            {/* Bouton de partage */}
            <p> <button onClick={copyGameLink} style={{
       padding: '10px',
+      fontSize: '16px', // Empêche le zoom automatique
       marginBottom: '10px',
       cursor: 'pointer',
       border: 'none',
