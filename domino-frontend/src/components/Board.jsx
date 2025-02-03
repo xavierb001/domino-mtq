@@ -167,32 +167,38 @@ const Board = ({ players, gameId, username, dominos, playDomino }) => {
     <div style={{ textAlign: 'center', padding: '20px' }}>
 
 
-      <div
-        style={{
-              padding: '0 100px',
-          width: '70vw',
-          height: '30vh',
-          textAlign: 'center',
-          marginTop: '20px', // Réduit de 50px à 20px
-          marginBottom: '25px',
-          backgroundImage: `url(${plateauDeJeuURL})`,
-          backgroundSize: '100% 100%', // Change de 'cover' à 'contain'
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          minHeight: '10vh', // Réduit de 100vh à 80vh
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'center', 
-          border: '8px solid #4a1f01', // Bordure de couleur marron
-          borderRadius: '15px', // Coins arrondis
-          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', // Ombre pour effet 3D
-          overflow: 'auto',
-          position: 'relative',
-          WebkitOverflowScrolling: 'touch',
-       
-        }}
-      >
+<div
+      style={{
+        padding: '0 20px',
+        width: '100%',
+        height: '30vh',
+        textAlign: 'center',
+        marginTop: '20px',
+        marginBottom: '25px',
+        backgroundImage: `url(${plateauDeJeuURL})`,
+        backgroundSize: '100% 100%',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        minHeight: '10vh',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        border: '8px solid #4a1f01',
+        borderRadius: '15px',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
+        overflow: 'auto',
+        position: 'relative',
+        WebkitOverflowScrolling: 'touch',
+      }}
+    >
+      <div style={{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        padding: '0 100px', // Espace supplémentaire pour les dominos aux extrémités
+        minWidth: 'max-content'
+      }}>
         {dominos.length === 0 ? (
           <p style={{ fontStyle: 'italic', color: '#FFF' }}>Aucun domino n'a encore été posé.</p>
         ) : (
@@ -208,7 +214,9 @@ const Board = ({ players, gameId, username, dominos, playDomino }) => {
           </div>
         )}
       </div> 
+      </div>
       <div>
+      
         <div style={{ display: 'flex', marginBottom: '20px',       alignItems: 'center',
       justifyContent: 'center', }}>
           {playerHand.map((domino, index) => (
