@@ -45,3 +45,4 @@ const ResultPopup = ({ roundResult, gameResult, username, startNewRound, onClose
       </div>
     );
   };
+  export default ResultPopup;
