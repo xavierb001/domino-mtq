@@ -88,6 +88,8 @@ function Game() {
   };
 
   useEffect(() => {
+
+    
     socket.on('updatePlayers', (data) => {
       setPlayers(
         data.map((player) => ({
@@ -190,6 +192,10 @@ function Game() {
       socket.off('error');
       socket.off('receiveMessage'); // Nettoyage des messages
     };
+  
+  }, [gameId, username, isChatboxVisible]);
+
+  useEffect(() => {
     const lockOrientation = () => {
       if (screen.orientation && screen.orientation.lock) {
         screen.orientation.lock("portrait").catch(err => console.log(err));
@@ -202,7 +208,7 @@ function Game() {
     return () => {
       window.removeEventListener("resize", lockOrientation);
     };
-  }, [gameId, username, isChatboxVisible]);
+  }, []);
 
   const otherPlayers = players.filter((player) => player.username !== username);
 
