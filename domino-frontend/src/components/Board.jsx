@@ -169,22 +169,27 @@ const Board = ({ players, gameId, username, dominos, playDomino }) => {
 
       <div
         style={{
+              padding: '0 20px',
           width: '30vw',
           height: '30vh',
           textAlign: 'center',
           marginTop: '20px', // Réduit de 50px à 20px
+          marginBottom: '25px',
           backgroundImage: `url(${plateauDeJeuURL})`,
-          backgroundSize: 'contain', // Change de 'cover' à 'contain'
+          backgroundSize: '100% 100%', // Change de 'cover' à 'contain'
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           minHeight: '10vh', // Réduit de 100vh à 80vh
           display: 'flex',
-          flexDirection: 'column',
+          flexDirection: 'row',
           alignItems: 'center',
-          justifyContent: 'flex-start', 
+          justifyContent: 'center', 
           border: '8px solid #4a1f01', // Bordure de couleur marron
           borderRadius: '15px', // Coins arrondis
           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', // Ombre pour effet 3D
+          overflow: 'auto',
+          position: 'relative',
+          WebkitOverflowScrolling: 'touch',
        
         }}
       >
