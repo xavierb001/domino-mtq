@@ -170,7 +170,7 @@ const Board = ({ players, gameId, username, dominos, playDomino }) => {
 <div
       style={{
         padding: '0 20px',
-        width: '100%',
+        width: '80%',
         height: '30vh',
         textAlign: 'center',
         marginTop: '20px',
