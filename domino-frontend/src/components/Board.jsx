@@ -169,24 +169,20 @@ const Board = ({ players, gameId, username, dominos, playDomino }) => {
 
       <div
         style={{
-          //padding: '10px',
-          height: '100px',
-          Height: '100vh',
-         // maxWidth: '100vw',
-          marginTop: '20px',
-          marginBottom: '20px',
-          //minHeight: '80vh',
-          overflowX: 'auto',
-          //backgroundImage: `url(${plateauDeJeu})`,
-          backgroundImage: `url(${plateauDeJeuURL})`, // Utilisation de l'URL Cloudinary
-          backgroundSize: 'contain',
+          width: '100vw',
+          height: '100vh',
+          textAlign: 'center',
+          marginTop: '20px', // Réduit de 50px à 20px
+          backgroundImage: `url(${imageFondJeuUrl})`,
+          backgroundSize: 'contain', // Change de 'cover' à 'contain'
           backgroundPosition: 'center',
-          //backgroundRepeat: 'no-repeat',
+          backgroundRepeat: 'no-repeat',
+          minHeight: '80vh', // Réduit de 100vh à 80vh
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'flex-start',
-          border: '10px solid #4a1f01', // Bordure de couleur marron
+          justifyContent: 'flex-start', 
+          border: '8px solid #4a1f01', // Bordure de couleur marron
           borderRadius: '15px', // Coins arrondis
           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', // Ombre pour effet 3D
        
