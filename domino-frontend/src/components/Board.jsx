@@ -170,14 +170,14 @@ const Board = ({ players, gameId, username, dominos, playDomino }) => {
       <div
         style={{
           width: '100vw',
-          height: '100vh',
+          height: '50vh',
           textAlign: 'center',
           marginTop: '20px', // Réduit de 50px à 20px
           backgroundImage: `url(${plateauDeJeuURL})`,
           backgroundSize: 'contain', // Change de 'cover' à 'contain'
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          minHeight: '80vh', // Réduit de 100vh à 80vh
+          minHeight: '10vh', // Réduit de 100vh à 80vh
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
