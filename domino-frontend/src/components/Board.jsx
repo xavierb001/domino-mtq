@@ -170,7 +170,7 @@ const Board = ({ players, gameId, username, dominos, playDomino }) => {
 <div
       style={{
         //padding: '0 20px',
-        width: '80%',
+        width: '90%',
         height: '30vh',
         textAlign: 'center',
         marginTop: '20px',
@@ -194,10 +194,10 @@ const Board = ({ players, gameId, username, dominos, playDomino }) => {
     >
       <div style={{
         display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
+        //flexDirection: 'column',
+        //alignItems: 'center',
         justifyContent: 'center',
-        width: '100%',
+        width: '100vw',
         padding: '20px'
       }}>
         {dominos.length === 0 ? (
