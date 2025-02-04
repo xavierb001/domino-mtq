@@ -6,6 +6,9 @@ const path = require('path');
 const PORT = process.env.PORT || 3000;
 const app = express();
 
+
+
+
 //const staticFolder = path.join(__dirname, 'dist');
 
 // Force HTTPS in production
@@ -53,6 +56,10 @@ const io = new Server(server, {
     }
   }
 });
+
+
+
+
 
 let games = {}; // Stockage des parties
 
@@ -312,6 +319,9 @@ socket.on('endRoundNoMoves', ({ gameId }) => {
     // Réinitialiser la table et distribuer les dominos
     game.table = [];
     distributeDominos(gameId);
+   // distributeDominos(gameId);
+    game.players.forEach((p) => io.to(p.id).emit('updateHand', p.hand));
+
     io.to(gameId).emit('newRoundStarted', {
       table: game.table,
       players: game.players.map((p) => ({
