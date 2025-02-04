@@ -80,7 +80,7 @@ const Board = ({ players, gameId, username, dominos, playDomino }) => {
   const [playerHand, setPlayerHand] = useState([]);
   const [selectedDomino, setSelectedDomino] = useState(null);
   const [showSideChoice, setShowSideChoice] = useState(false);
-
+  const [positionOffset, setPositionOffset] = useState(0); // Stocke le décalage dynamique
   useEffect(() => {
     socket.on('updateHand', (hand) => {
       console.log('[Socket.IO] Main mise à jour :', hand);
@@ -91,6 +91,17 @@ const Board = ({ players, gameId, username, dominos, playDomino }) => {
       socket.off('updateHand');
     };
   }, []);
+
+  useEffect(() => {
+    if (dominos.length > 0) {
+      // Vérifie si le dernier domino a été ajouté à gauche ou à droite
+      const lastMove = dominos[dominos.length - 1].move; // 'left' ou 'right'
+      
+      setPositionOffset((prevOffset) => 
+        lastMove === 'left' ? prevOffset + 50 : prevOffset - 50
+      );
+    }
+  }, [dominos]);
 
   const isDominoPlayable = (domino) => {
     if (dominos.length === 0) return true;
@@ -207,7 +218,7 @@ const Board = ({ players, gameId, username, dominos, playDomino }) => {
         ) : (
           <div style={{ display: 'flex', gap: '1px', padding: '0 10px', // Ajoute des marges pour le scroll
             minWidth: 'max-content', // Assure que tout le contenu est accessible
-            transform: 'translateX(30%)', // Centre les dominos même s'ils s'ajoutent
+            transform: 'translateX(${positionOffset}%)', // Centre les dominos même s'ils s'ajoutent
             left: '10%',
             position: 'absolute',
           }}>
