@@ -438,3 +438,10 @@ server.listen(PORT, '0.0.0.0', () => {
 app.use((req, res) => {
   res.status(404).send('Route non définie.');
 });
+
+app.use((req, res, next) => {
+  if (req.headers['x-forwarded-proto'] !== 'https') {
+    return res.redirect('https://' + req.headers.host + req.url);
+  }
+  next();
+});
