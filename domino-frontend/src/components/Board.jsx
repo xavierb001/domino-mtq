@@ -207,7 +207,7 @@ const Board = ({ players, gameId, username, dominos, playDomino }) => {
         ) : (
           <div style={{ display: 'flex', gap: '1px', padding: '0 10px', // Ajoute des marges pour le scroll
             minWidth: 'max-content', // Assure que tout le contenu est accessible
-            transform: 'translateX(-50%)', // Centre les dominos même s'ils s'ajoutent
+            transform: 'translateX(-10%)', // Centre les dominos même s'ils s'ajoutent
             left: '10%',
             position: 'absolute',
           }}>
