@@ -207,6 +207,9 @@ const Board = ({ players, gameId, username, dominos, playDomino }) => {
         ) : (
           <div style={{ display: 'inline-flex', gap: '1px', padding: '0 100px', // Ajoute des marges pour le scroll
             minWidth: 'max-content', // Assure que tout le contenu est accessible
+            transform: 'translateX(-50%)', // Centre les dominos même s'ils s'ajoutent
+            left: '50%',
+            position: 'absolute',
           }}>
             {dominos.map((domino, index) => (
               <img
