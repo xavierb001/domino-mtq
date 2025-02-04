@@ -205,10 +205,10 @@ const Board = ({ players, gameId, username, dominos, playDomino }) => {
         {dominos.length === 0 ? (
           <p style={{ fontStyle: 'italic', color: '#FFF' }}>Aucun domino n'a encore été posé.</p>
         ) : (
-          <div style={{ display: 'flex', gap: '1px', padding: '0 100px', // Ajoute des marges pour le scroll
+          <div style={{ display: 'flex', gap: '1px', padding: '0 10px', // Ajoute des marges pour le scroll
             minWidth: 'max-content', // Assure que tout le contenu est accessible
             transform: 'translateX(-50%)', // Centre les dominos même s'ils s'ajoutent
-            left: '100%',
+            left: '10%',
             position: 'absolute',
           }}>
             {dominos.map((domino, index) => (
