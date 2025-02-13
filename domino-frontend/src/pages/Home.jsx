@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./Home.css";
 import backgroundImage from '../assets/images/imagefond_accueil.png';
+import rulesIcon from  "https://res.cloudinary.com/dwvfz8o89/image/upload/f_auto,q_auto/v1/domino/cpengjxws12jdjvxsk5m";
 
 
 function Home() {
   const [gameId, setGameId] = useState(''); // Stocke l'ID de la partie entrée par l'utilisateur
   const navigate = useNavigate();
+  const [showRules, setShowRules] = useState(false);
+
 
   // Fonction pour créer une nouvelle partie
   const createGame = () => {
@@ -22,6 +25,11 @@ function Home() {
       alert('Veuillez entrer un ID de partie valide.');
     }
   };
+
+  const toggleRulesPopup = () => {
+    setShowRules(!showRules);
+  };
+
 
   return (
     <div
@@ -69,7 +77,69 @@ function Home() {
     </div>
     </div>
     </div>
+
+    <div style={{ textAlign: "center", position: "relative", padding: "20px" }}>
+      {/* Bouton d'information */}
+      <img
+        src={rulesIcon}
+        alt="Règles du jeu"
+        onClick={toggleRulesPopup}
+        style={{
+          position: "absolute",
+          top: "20px",
+          right: "20px",
+          width: "40px",
+          height: "40px",
+          cursor: "pointer",
+        }}
+      />
+
+      {/* Popup des règles */}
+      {showRules && (
+        <div
+          style={{
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            backgroundColor: "white",
+            padding: "20px",
+            borderRadius: "10px",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            width: "80%",
+            maxWidth: "400px",
+            zIndex: 1000,
+          }}
+        >
+          <h2>📜 Règles du Jeu</h2>
+          <p>
+            🎲 **Nombre de joueurs** : 3 joueurs<br />
+            🃏 **Distribution** : Chaque joueur reçoit 7 dominos.<br />
+            ➡️ **Déroulement** : Les joueurs posent un domino qui correspond à l’une des extrémités du plateau.<br />
+            🚫 **Tour passé** : Si un joueur ne peut pas jouer, il passe son tour.<br />
+            🏆 **Victoire** : Le premier joueur à ne plus avoir de dominos gagne la manche !<br />
+            ❌ **Partie bloquée** : Si personne ne peut jouer, la manche est annulée.<br />
+          </p>
+
+          <button
+            onClick={toggleRulesPopup}
+            style={{
+              marginTop: "10px",
+              padding: "10px 20px",
+              backgroundColor: "#007bff",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+          >
+            Fermer
+          </button>
+        </div>
+      )}
     </div>
+    </div>
+    
   );
 }
 
