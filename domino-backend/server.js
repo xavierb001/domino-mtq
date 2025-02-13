@@ -178,7 +178,7 @@ io.on('connection', (socket) => {
     // Si le tableau est vide, ajouter directement le domino
     if (game.table.length === 0) {
       game.table.push(domino);
-      games.consecutivePasses = 0;
+      game.consecutivePasses = 0;
       player.handC--;
     } else {
       console.log(`test partie fini.`);
@@ -186,21 +186,21 @@ io.on('connection', (socket) => {
       if (side === 'left' && (game.table[0][0] === domino[1] || game.table[0][0] === domino[0])) {
         if (game.table[0][0] === domino[1]) {
           game.table.unshift(domino);
-          games.consecutivePasses = 0;
+          game.consecutivePasses = 0;
           player.handC--;
         } else {
           game.table.unshift([domino[1], domino[0]]);
-          games.consecutivePasses = 0;
+          game.consecutivePasses = 0;
           player.handC--;
         }
       } else if (side === 'right' && (game.table[game.table.length - 1][1] === domino[0] || game.table[game.table.length - 1][1] === domino[1])) {
         if (game.table[game.table.length - 1][1] === domino[0]) {
           game.table.push(domino);
-          games.consecutivePasses = 0;
+          game.consecutivePasses = 0;
           player.handC--;
         } else {
           game.table.push([domino[1], domino[0]]);
-          games.consecutivePasses = 0;
+          game.consecutivePasses = 0;
           player.handC--;
         }
       } else {
