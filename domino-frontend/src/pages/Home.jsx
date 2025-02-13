@@ -72,6 +72,20 @@ function Home() {
   <button onClick={joinGame} style={{ padding: '10px 20px' }}>
     Rejoindre
   </button>
+   {/* Bouton d'information */}
+   <img
+        src="https://res.cloudinary.com/dwvfz8o89/image/upload/f_auto,q_auto/v1/domino/cpengjxws12jdjvxsk5m"
+        alt="Règles du jeu"
+        onClick={toggleRulesPopup}
+        style={{
+          position: "absolute",
+          top: "20px",
+          right: "20px",
+          width: "40px",
+          height: "40px",
+          cursor: "pointer",
+        }}
+      />
   
   
   </div>
