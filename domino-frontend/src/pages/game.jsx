@@ -272,7 +272,7 @@ function Game() {
       border: 'none',
       background: 'none'
     }}>
-      <img src={shareIcon} alt="Partager" style={{ width: '32px', height: '32px' }} />
+      <img src={shareIcon} alt="Partager" style={{ width: '32px', height: '32px' }} /> Invite des joeurs
     </button></p>
         </div>
       ) : (
