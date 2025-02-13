@@ -235,6 +235,20 @@ function Game() {
       {waitingRoomMessage && (
         <div style={{ color: 'blue', marginBottom: '20px' }}>
           <strong>{waitingRoomMessage}</strong>
+
+{/* Bouton de partage */}
+<p> <button onClick={copyGameLink} style={{
+      padding: '10px',
+      fontSize: '16px', // Empêche le zoom automatique
+      marginBottom: '10px',
+      cursor: 'pointer',
+      border: 'none',
+      background: 'none'
+    }}>
+      <img src={shareIcon} alt="Partager" style={{ width: '32px', height: '32px' }} /> INVITE DES JOUEURS
+    </button></p>
+
+
         </div>
       )}
 
@@ -272,7 +286,7 @@ function Game() {
       border: 'none',
       background: 'none'
     }}>
-      <img src={shareIcon} alt="Partager" style={{ width: '32px', height: '32px' }} /> Invite des joeurs
+      <img src={shareIcon} alt="Partager" style={{ width: '32px', height: '32px' }} /> INVITE DES JOUEURS
     </button></p>
         </div>
       ) : (
