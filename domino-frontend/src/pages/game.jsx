@@ -276,18 +276,7 @@ function Game() {
             }}
             placeholder="Entrez votre pseudo"
           />
-          <button onClick={joinGame}>Rejoindre</button>
-           {/* Bouton de partage */}
-           <p> <button onClick={copyGameLink} style={{
-      padding: '10px',
-      fontSize: '16px', // Empêche le zoom automatique
-      marginBottom: '10px',
-      cursor: 'pointer',
-      border: 'none',
-      background: 'none'
-    }}>
-      <img src={shareIcon} alt="Partager" style={{ width: '32px', height: '32px' }} /> INVITE DES JOUEURS
-    </button></p>
+
         </div>
       ) : (
         <div>

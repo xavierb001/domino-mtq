@@ -301,7 +301,7 @@ socket.on('endRoundNoMoves', ({ gameId }) => {
   if (!games[gameId]) return;
 
   io.to(gameId).emit('roundEnd', { winner: "Aucun", message: "Tous les joueurs ont passé leur tour. La manche est terminée." });
-  console.log(`test passing`);
+  console.log(`test passing2`);
   // Réinitialiser le jeu
   games[gameId].table = [];
   games[gameId].consecutivePasses = 0;
