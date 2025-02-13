@@ -98,20 +98,20 @@ function Home() {
             padding: "20px",
             borderRadius: "10px",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-            width: "80%",
+            width: "90%",
             maxWidth: "400px",
             zIndex: 1000,
           }}
         >
-          <h2>📜 Règles du Jeu</h2>
-          <p>
-            🎲 **Nombre de joueurs** : 3 joueurs<br />
-            🃏 **Distribution** : Chaque joueur reçoit 7 dominos.<br />
-            ➡️ **Déroulement** : Les joueurs posent un domino qui correspond à l’une des extrémités du plateau.<br />
-            🚫 **Tour passé** : Si un joueur ne peut pas jouer, il passe son tour.<br />
-            🏆 **Victoire** : Le premier joueur à ne plus avoir de dominos gagne la manche !<br />
-            ❌ **Partie bloquée** : Si personne ne peut jouer, la manche est annulée.<br />
-          </p>
+          <h2 style={{ color: "#333", textAlign: "center" }}>📜 Règles du Jeu</h2>
+            <p style={{ color: "#000", lineHeight: "1.5" }}>
+              🎲 <strong>Nombre de joueurs :</strong> 3 joueurs<br />
+              🃏 <strong>Distribution :</strong> Chaque joueur reçoit 7 dominos.<br />
+              ➡️ <strong>Déroulement :</strong> Les joueurs posent un domino correspondant à une extrémité du plateau.<br />
+              🚫 <strong>Tour passé :</strong> Si un joueur ne peut pas jouer, il passe son tour.<br />
+              🏆 <strong>Victoire :</strong> Le premier joueur à ne plus avoir de dominos gagne la manche !<br />
+              ❌ <strong>Partie bloquée :</strong> Si personne ne peut jouer, la manche est annulée.<br />
+            </p>
 
           <button
             onClick={toggleRulesPopup}
