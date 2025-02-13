@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./Home.css";
 import backgroundImage from '../assets/images/imagefond_accueil.png';
-import rulesIcon from  "https://res.cloudinary.com/dwvfz8o89/image/upload/f_auto,q_auto/v1/domino/cpengjxws12jdjvxsk5m";
+const rulesIcon = "https://res.cloudinary.com/dwvfz8o89/image/upload/f_auto,q_auto/v1/domino/cpengjxws12jdjvxsk5m";
 
 
 function Home() {
