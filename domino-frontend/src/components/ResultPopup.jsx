@@ -20,7 +20,7 @@ const ResultPopup = ({ roundResult, gameResult, username, startNewRound, onClose
             </div>
           )}
   
-          {roundResult && roundResult.winner === "Aucun" && (
+          {roundResult && roundResult.winner === "Aucun" && ( 
             <div style={{ color: 'red' }}>
               <strong>Manche terminée :</strong> Aucun joueur ne pouvait poser de domino.
               <button onClick={startNewRound} className="popup-button">

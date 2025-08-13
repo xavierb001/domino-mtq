@@ -183,7 +183,7 @@ const Board = ({ players, gameId, username, dominos, playDomino }) => {
         padding: '0px 50px 0px 50px',
         width: '50%',
         height: '20vh',
-        maxWidth: '40vw',          // Évite qu'il prenne toute la largeur
+        maxWidth: '80vw',          // Évite qu'il prenne toute la largeur
         margin: 'auto', 
         textAlign: 'center',
         marginTop: '20px',

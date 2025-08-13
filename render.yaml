@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: domino-game
+    env: node
+    buildCommand: cd domino-frontend && npm install && npm run build && cd ../domino-backend && npm install
+    startCommand: cd domino-backend && node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
