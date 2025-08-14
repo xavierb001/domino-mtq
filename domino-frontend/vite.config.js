@@ -21,6 +21,8 @@ export default defineConfig({
     allowedHosts: ['hidden-meadow-68185-d2168c8f325d.herokuapp.com']
   },
   build: {
+    outDir: 'dist',
+    sourcemap: true,
     rollupOptions: {
       external: ['@rollup/rollup-linux-x64-gnu']
     }
