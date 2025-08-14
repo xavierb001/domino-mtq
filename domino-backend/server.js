@@ -2,9 +2,23 @@ const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
 const cors = require('cors');
-const path = require('path');
-const PORT = process.env.PORT || 3000;
+
 const app = express();
+const server = http.createServer(app);
+
+const io = new Server(server, {
+  cors: {
+    origin: [
+      'http://localhost:5173',
+      'https://domino-martinique.onrender.com'
+    ],
+    methods: ['GET', 'POST'],
+    credentials: true,
+    transports: ['websocket']
+  }
+});
+
+const PORT = process.env.PORT || 3000;
 
 
 
@@ -28,6 +42,7 @@ const FRONTEND_URL = process.env.NODE_ENV === "production"
 
 
 
+
 // Servir les fichiers statiques
 app.use(express.static(path.join(__dirname, '../domino-frontend/dist')));
 
@@ -38,24 +53,6 @@ app.use(cors({
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
-const server = http.createServer(app);
-const io = new Server(server, {
-  cors: {
-    origin: ['http://localhost:5173', 'https://domino-martinique.onrender.com'],
-    methods: ['GET', 'POST'],
-    credentials: true,
-    transports: ['websocket', 'polling'],
-    pingTimeout: 60000,
-    pingInterval: 25000,
-    allowEIO3: true,
-    cookie: {
-      name: "socket-io",
-      httpOnly: true,
-      sameSite: "strict",
-      secure: process.env.NODE_ENV === "production"
-    }
-  }
-});
 
 
 
