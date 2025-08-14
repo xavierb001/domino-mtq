@@ -19,5 +19,10 @@ export default defineConfig({
   }, 
    preview: {
     allowedHosts: ['hidden-meadow-68185-d2168c8f325d.herokuapp.com']
+  },
+  build: {
+    rollupOptions: {
+      external: ['@rollup/rollup-linux-x64-gnu']
+    }
   }
 });

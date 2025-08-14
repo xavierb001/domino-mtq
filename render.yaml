@@ -1,9 +1,18 @@
 services:
   - type: web
-    name: domino-game
+    name: domino-mtq
     env: node
-    buildCommand: cd domino-frontend && npm install && npm run build && cd ../domino-backend && npm install
+    plan: free
+    buildCommand: >
+      cd domino-frontend && 
+      ROLLUP_SKIP_NODE_RESOLVE=true npm install && 
+      ROLLUP_SKIP_NODE_RESOLVE=true npm run build && 
+      cd ../domino-backend && 
+      npm install
     startCommand: cd domino-backend && node server.js
     envVars:
       - key: NODE_ENV
         value: production
+      - key: FRONTEND_URL
+        value: https://domino-martinique.onrender.com
+    nodeVersion: 23.x
