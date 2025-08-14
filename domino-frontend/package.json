@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "ROLLUP_SKIP_NODE_RESOLVE=true vite build",
+    "build": "ROLLUP_SKIP_NODE_RESOLVE=true ./node_modules/.bin/vite build",
     "preview": "vite preview --port 5173"
   },
   "dependencies": {
