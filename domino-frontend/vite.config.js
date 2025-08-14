@@ -26,5 +26,8 @@ export default defineConfig({
     rollupOptions: {
       external: ['@rollup/rollup-linux-x64-gnu']
     }
+  },
+  define: {
+    'process.env.BACKEND_URL': JSON.stringify(process.env.VITE_BACKEND_URL)
   }
 });
